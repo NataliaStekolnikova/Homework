@@ -337,7 +337,7 @@ if __name__ == '__main__':
     print("#switch_nth_bit(0b1111, 1), so the result should be 0b1101, i.e. " + str(switch_nth_bit(0b1111, 1)))
     print("#switch_nth_bit(0b1111, 3), so the result should be 0b0111, i.e. " + str(switch_nth_bit(0b1111, 3)))
 
-    print("# home task 19:")
+    print("# home task 20:")
     print("change_priorities(0) calculates (x + 3) ** 3, so the result is  " + str(change_priorities(0)))
     print("change_priorities(1) calculates (x + 3) ** 3, so the result is  " + str(change_priorities(1)))
     print("change_priorities(2) calculates (x + 3) ** 3, so the result is  " + str(change_priorities(2)))

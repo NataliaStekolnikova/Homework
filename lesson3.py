@@ -1,4 +1,5 @@
-#Задачи для закрепления на занятии
+# gigЗадачи для закрепления на занятии
+
 # 1. Базовые операции со строками.
 # Вводится строка. Удалить из нее все пробелы, после этого определить, является ли она палиндромом,
 # т.е. одинаково пишется как с начала так и с конца.
@@ -26,21 +27,25 @@ print(f"Самое длинное слово: {longest_word}")
 # 4. Вводится строка.
 # Требуется удалить из нее повторяющиеся символы и все пробелы. Например, если было введено "abc cde def", то должно быть выведено "abcdef".
 input_string = input("Введите строку: ")
-unique_chars = set(input_string.replace(" ", "")) # преобразование во множество убирает все дубликаты по определению
-unique_chars = sorted(unique_chars) # для выполнения условия задачи, сортируем элементы множества
-print("Результат:", ''.join(unique_chars))
+input_string = input_string.replace(" ", "")
+unique_chars = set()
+result = ""
+for char in input_string:
+    if char not in unique_chars:
+        result += char
+        unique_chars.add(char)
+print("Результат:", result)
+
 
 # 5. Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке. Учитывать только английские буквы.
 input_string = input("Введите строку: ")
-lowercase_count = uppercase_count = 0
-# Перебираем каждый символ в строке
+lowercase_count = 0
+uppercase_count = 0
 for char in input_string:
-    # Проверяем, является ли символ английской буквой
-    if char.isalpha():
-        if char.islower():
-            lowercase_count += 1
-        uppercase_count += 1
-uppercase_count = uppercase_count - lowercase_count
-print("Количество строчных букв: ", lowercase_count)
-print("Количество прописных букв: ", uppercase_count)
-git 
+    if 'a' <= char <= 'z':
+        lowercase_count += 1
+    else:
+        if 'A' <= char <= 'Z':
+            uppercase_count += 1
+print("Количество строчных букв:", lowercase_count)
+print("Количество прописных букв:", uppercase_count)

@@ -20,6 +20,7 @@ print("Повторяющиеся числа:")
 for number in duplicates:
     print(number)
 
+
 # 2. Нaпишите программу, на вход которой подаётся список чисел одной строкой.
 # Программа должна для каждого элемента этого списка вывести сумму двух его cоседей.
 # Для элeментов списка, являющиxся крайними, одним из соседей считается элемент, находящий на противоположном конце этого списка.
@@ -27,20 +28,12 @@ for number in duplicates:
 # Если на вход пришло только однo число, надо вывести его же.
 # Вывoд должен содержать одну строку с чиcлами новoго списка, разделёнными пробeлом.
 
-input_string = input("Введите список чисел через пробел: ").split()
-numbers = []
-for number in input_string:
-    numbers.append(int(number))
-if len(numbers) == 0 or len(numbers) == 1:
-    result = numbers
-else:
-    result = []
-    for i in range(len(numbers)):
-        left_neighbor = numbers[i - 1]
-        right_neighbor = numbers[(i + 1) % len(numbers)]
-        result.append(left_neighbor + right_neighbor)
-result_str = ' '.join([str(item) for item in result])
+
+from itertools import chain
+
+result_str = ' '.join(map(str, [(left + right) for left, number, right in zip(numbers[-1:], numbers, chain(numbers[1:], [numbers[0]]))]))
 print(result_str)
+
 
 # 3. Создайте кортеж с пятью любыми целыми числами от 0 до 3 включительно.
 my_tuple = (1, 3, 2, 0, 3)
